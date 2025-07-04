@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soporte IT - Grupo Empresarial</title>
+
+    <!-- Flatpickr CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://npmcdn.com/flatpickr/dist/l10n/es.css"
+    />
+
+    <style>
+      :root {
+        --primary: #1565c0;
+        --secondary: #f5f7fa;
+        --text: #333;
+        --input-border: #ccc;
+        --radius: 10px;
+        --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: var(--secondary);
+        margin: 0;
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .card-form {
+        background: #fff;
+        padding: 40px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        width: 100%;
+        max-width: 800px;
+        transition: all 0.3s ease;
+      }
+
+      h2 {
+        margin-top: 0;
+        color: var(--primary);
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 30px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: var(--text);
+        font-size: 15px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="file"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: var(--radius);
+        border: 1px solid var(--input-border);
+        font-size: 14px;
+        transition: border-color 0.2s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--primary);
+        outline: none;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      input[type="submit"] {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 14px 20px;
+        border-radius: var(--radius);
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0d47a1;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 8px;
+      }
+
+      .note {
+        font-size: 13px;
+        color: #777;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-form">
+      <h2>🛠️ Solicitud de Soporte Técnico - Área IT</h2>
+
+      <form
+        action="https://formsubmit.co/juan.acosta@torreon.com.co"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <!-- Protecciones FormSubmit -->
+        <input type="text" name="_honey" style="display: none" />
+        <input type="hidden" name="_captcha" value="false" />
+
+        <div class="form-group">
+          <label>🧾 Código de caso (generado automáticamente)</label>
+          <input
+            type="text"
+            id="codigo_caso"
+            name="codigo_caso"
+            readonly
+            style="background: #f1f3f5"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>👤 Nombre completo</label>
+          <input type="text" name="nombre" required />
+        </div>
+
+        <div class="form-group">
+          <label>📧 Correo electrónico corporativo</label>
+          <input type="email" name="correo" required />
+        </div>
+
+        <div class="form-group">
+          <label>🏢 Área o dependencia</label>
+          <select name="area" required>
+            <option value="">Selecciona...</option>
+            <option>Comercial</option>
+            <option>Marketing</option>
+            <option>Contabilidad</option>
+            <option>Proyectos</option>
+            <option>Diseño</option>
+            <option>Cartera</option>
+            <option>Escrituración</option>
+            <option>Abastecimiento</option>
+            <option>Compras</option>
+            <option>Bienestar</option>
+            <option>Jurídico</option>
+            <option>Talento Humano</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>📞 Número de contacto o extensión</label>
+          <input type="text" name="telefono" />
+        </div>
+
+        <div class="form-group">
+          <label>📂 Tipo de solicitud</label>
+          <select name="tipo_solicitud" required>
+            <option value="">Selecciona...</option>
+            <option>🛠️ Soporte técnico</option>
+            <option>💻 Instalación o configuración</option>
+            <option>🔐 Acceso o permisos</option>
+            <option>📡 Problemas de red</option>
+            <option>🧾 Solicitud de software</option>
+            <option>♻️ Respaldo o recuperación</option>
+            <option>📦 Entrega o devolución de equipo</option>
+            <option>❓ Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>⚠️ Prioridad del requerimiento</label>
+          <select name="prioridad" id="prioridad" required>
+            <option value="">Selecciona...</option>
+            <option value="baja">🔵 Baja (192h)</option>
+            <option value="media">🟡 Media (32h)</option>
+            <option value="alta">🔴 Alta (24h)</option>
+          </select>
+        </div>
+
+        <div
+          id="descripcion-prioridad"
+          style="
+            font-size: 14px;
+            background: #f1f3f5;
+            padding: 12px;
+            border-radius: 10px;
+            color: #333;
+          "
+        >
+          Selecciona una prioridad para ver la descripción detallada.
+        </div>
+
+        <div class="form-group">
+          <label>📝 Descripción del problema o solicitud</label>
+          <textarea name="descripcion" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>📅 ¿Desde cuándo presenta el problema?</label>
+          <input
+            type="text"
+            name="fecha_inicio"
+            placeholder="Selecciona una fecha"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>💻 Tipo de equipo afectado</label>
+          <select name="tipo_equipo">
+            <option value="">Selecciona...</option>
+            <option>💼 Portátil</option>
+            <option>🖥️ PC de escritorio</option>
+            <option>🖨️ Impresora</option>
+            <option>📠 Escáner</option>
+            <option>📱 Telefono corporativo</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>🔍 ¿Has intentado alguna solución previa?</label>
+          <select name="solucion_previa" id="solucion_previa">
+            <option value="">Selecciona...</option>
+            <option value="No">No</option>
+            <option value="Sí">Sí</option>
+          </select>
+        </div>
+
+        <div
+          class="form-group"
+          id="detalle_solucion_group"
+          style="display: none"
+        >
+          <label>🧪 ¿Qué intentaste?</label>
+          <textarea
+            name="detalle_solucion"
+            placeholder="Describe brevemente lo que intentaste..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>📎 Adjuntar evidencia</label>
+          <input type="file" name="archivo" />
+        </div>
+
+        <div class="form-group">
+          <label>📍 Ubicación actual</label>
+          <input
+            type="text"
+            name="ubicacion"
+            placeholder="Ej: Piso 12, Local 7, SV Mirolindo..."
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" name="autorizacion" required />
+            Acepto el tratamiento de mis datos para soporte técnico
+          </label>
+        </div>
+
+        <input type="submit" value="📨 Enviar Solicitud" />
+        <p class="note">
+          📩 Recibirás confirmación en tu correo al enviar este formulario.
+        </p>
+      </form>
+    </div>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+
+    <script>
+      flatpickr("input[name='fecha_inicio']", {
+        dateFormat: "d/m/Y",
+        locale: "es",
+      });
+
+      // Mostrar/ocultar "¿Qué intentaste?"
+      const selectSolucion = document.getElementById("solucion_previa");
+      const campoDetalle = document.getElementById("detalle_solucion_group");
+
+      selectSolucion.addEventListener("change", function () {
+        campoDetalle.style.display = this.value === "Sí" ? "block" : "none";
+      });
+
+      // Descripción de prioridad
+      const selectPrioridad = document.getElementById("prioridad");
+      const descripcion = document.getElementById("descripcion-prioridad");
+
+      const textos = {
+        baja: `🔵 <strong>Baja (192 horas laborales)</strong><br>
+      Dentro de las primeras 24 horas se informará al solicitante el proceso que se realizará.<br>
+      Casos: mejoras en sistemas, cambio de partes, accesorios, cambio de versiones, traslados.`,
+        media: `🟡 <strong>Media (32 horas laborales)</strong><br>
+      No afecta totalmente el proceso, pero es indispensable para otras actividades.<br>
+      Ejemplo: funcionamiento de impresoras, deterioro de partes.`,
+        alta: `🔴 <strong>Alta (24 horas laborales)</strong><br>
+      Afecta completamente la continuidad del proceso o paraliza al usuario.`,
+      };
+
+      selectPrioridad.addEventListener("change", function () {
+        const valor = this.value;
+        descripcion.innerHTML =
+          textos[valor] ||
+          "Selecciona una prioridad para ver la descripción detallada.";
+      });
+
+      // Generador de código de caso automático
+      function generarCodigoCaso() {
+        const fecha = new Date();
+        const dia = String(fecha.getDate()).padStart(2, "0");
+        const mes = String(fecha.getMonth() + 1).padStart(2, "0");
+        const anio = fecha.getFullYear();
+        const aleatorio = Math.floor(1000 + Math.random() * 9000);
+        return `CASE-IT-${anio}${mes}${dia}-${aleatorio}`;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("codigo_caso").value = generarCodigoCaso();
+      });
+    </script>
+  </body>
+</html>
